@@ -1,0 +1,37 @@
+version: '3'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports: 
+      - "15672:15672"
+    networks:
+      - qyt_net
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq_admin
+      - RABBITMQ_DEFAULT_PASS=Cisc0123
+  nameko-microservice:
+    build: "./microservices/"
+    networks:
+      - qyt_net
+    environment:
+      - nameko_username=rabbitmq_admin
+      - nameko_password=Cisc0123
+    depends_on:
+      - rabbitmq
+    restart: always
+  nameko-app:
+    build: "./app/"
+    depends_on:
+      - nameko-microservice
+    ports:
+      - "8089:8089"
+    networks:
+      - qyt_net
+    environment:
+      - nameko_username=rabbitmq_admin
+      - nameko_password=Cisc0123
+    restart: always
+
+networks:
+  qyt_net:
+    driver: bridge
