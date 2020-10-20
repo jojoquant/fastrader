@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   rabbitmq:
     image: "rabbitmq:3-management"
@@ -7,18 +8,49 @@ services:
     networks:
       - qyt_net
     environment:
-      - RABBITMQ_DEFAULT_USER=rabbitmq_admin
-      - RABBITMQ_DEFAULT_PASS=Cisc0123
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+  
+  influxdb:
+    image: "influxdb"
+    container_name: influxdb
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+    networks:
+      - qyt_net
+    volumes:
+      - /usr/local/influxdb/conf:/etc/influxdb
+      - /usr/local/influxdb/data:/var/lib/influxdb/data
+      - /usr/local/influxdb/meta:/var/lib/influxdb/meta
+      - /usr/local/influxdb/wal:/var/lib/influxdb/wal
+    restart: always
+  
+  grafana:
+    image: "grafana/grafana"
+    hostname: grafana
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    networks:
+      - qyt_net
+    volumes:
+      - /usr/local/grafana/:/var/lib/grafana/
+    depends_on:
+      - influxdb
+    restart: always
+
   nameko-microservice:
     build: "./microservices/"
     networks:
       - qyt_net
     environment:
-      - nameko_username=rabbitmq_admin
-      - nameko_password=Cisc0123
+      - NAMEKO_USER=${NAMEKO_USER}
+      - NAMEKO_PASS=${NAMEKO_PASS}
     depends_on:
       - rabbitmq
     restart: always
+
   nameko-app:
     build: "./app/"
     depends_on:
@@ -27,9 +59,7 @@ services:
       - "8089:8089"
     networks:
       - qyt_net
-    environment:
-      - nameko_username=rabbitmq_admin
-      - nameko_password=Cisc0123
+    env_file: .env
     restart: always
 
 networks:

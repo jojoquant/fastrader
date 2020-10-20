@@ -19,10 +19,10 @@ from starlette.status import WS_1008_POLICY_VIOLATION
 
 from nameko.standalone.rpc import ClusterRpcProxy
 
+nameko_username = os.environ.get('NAMEKO_USER')
+nameko_password = os.environ.get('NAMEKO_PASS')
+nameko_host = os.environ.get('NAMEKO_HOST', "rabbitmq")
 
-nameko_username = os.environ.get('nameko_username')
-nameko_password = os.environ.get('nameko_password')
-nameko_host = os.environ.get('nameko_host', "rabbitmq")
 CONFIG = {
     'AMQP_URI': f"amqp://{nameko_username}:{nameko_password}@{nameko_host}"
 }
