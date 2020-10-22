@@ -10,7 +10,32 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
-  
+
+  mongo:
+    image: mongo
+    restart: always
+    env_file:
+      - ./mongodb.env
+    ports:
+      - 27017:27017
+    networks:
+      - qyt_net
+    # 数据持久化
+    volumes:
+      - /usr/local/mongodb:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    networks:
+      - qyt_net
+    env_file:
+      - ./mongodb.env
+    depends_on:
+      - mongo
+
   influxdb:
     image: "influxdb"
     # container_name: influxdb
