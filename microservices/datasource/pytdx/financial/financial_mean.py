@@ -79,7 +79,7 @@ financial_dict = {
     '268一般风险准备(金融类)': 'generalRiskPreparation',
     '269其他综合收益(利润表)': 'otherComprehensiveIncome',
     '270综合收益总额(利润表)': 'totalComprehensiveIncome',
-    '271归属于母公司股东权益(资产负债表)': 'shareholdersOwnershipOfAParentCompany ',
+    '271归属于母公司股东权益(资产负债表)': 'shareholdersOwnershipOfAParentCompany',
     '272银行机构数(家)(机构持股)': 'bankInstutionNumber',
     '273银行持股量(股)(机构持股)': 'bankInstutionShareholding',
     '274一般法人机构数(家)(机构持股)': 'corporationNumber',

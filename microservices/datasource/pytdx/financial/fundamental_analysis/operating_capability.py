@@ -8,7 +8,7 @@
 operating_capability_dict = {
     # 6. 经营效率分析
     # 销售收入÷平均应收账款=销售收入\(0.5 x(应收账款期初+期末))
-    '172应收帐款周转率': 'turnoverRatioOfReceivable;',
+    '172应收帐款周转率': 'turnoverRatioOfReceivable',
     '173存货周转率': 'turnoverRatioOfInventory',
     # (存货周转天数+应收帐款周转天数-应付帐款周转天数+预付帐款周转天数-预收帐款周转天数)/365
     '174运营资金周转率': 'turnoverRatioOfOperatingAssets',

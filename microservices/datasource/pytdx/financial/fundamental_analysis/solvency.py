@@ -17,7 +17,7 @@ solvency_dict = {
     '166有形资产净值债务率(%)': 'debtToTangibleAssetsRatio',
     '167权益乘数(%)': 'equityMultiplier',  # 资产总额/股东权益总额
     '168股东的权益/负债合计(%)': 'equityDebtRatio',  # 权益负债率
-    '169有形资产/负债合计(%)': 'tangibleAssetDebtRatio ',  # 有形资产负债率
+    '169有形资产/负债合计(%)': 'tangibleAssetDebtRatio',  # 有形资产负债率
     '170经营活动产生的现金流量净额/负债合计(%)': 'netCashFlowsFromOperatingActivitiesDebtRatio',
     '171EBITDA/负债合计(%)': 'EBITDA/Liabilities',
 }
