@@ -4,12 +4,11 @@ services:
   rabbitmq:
     image: "rabbitmq:3-management"
     ports: 
-      - "15672:15672"
+      - ${RABBITMQ_PORT}:15672
     networks:
       - qyt_net
-    environment:
-      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
-      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    env_file:
+      - ./rabbitmq.env
 
   mongo:
     image: mongo
@@ -17,7 +16,7 @@ services:
     env_file:
       - ./mongodb.env
     ports:
-      - 27017:27017
+      - ${MONGO_PORT}:27017
     networks:
       - qyt_net
     # 数据持久化
@@ -28,7 +27,7 @@ services:
     image: mongo-express
     restart: always
     ports:
-      - 8081:8081
+      - ${MONGO_EXPRESS_PORT}:8081
     networks:
       - qyt_net
     env_file:
@@ -40,8 +39,8 @@ services:
     image: "influxdb"
     # container_name: influxdb
     ports:
-      - "8083:8083"
-      - "8086:8086"
+      - ${INFLUXDB_PORT}:8083
+      - ${INFLUXDB_HTTP_PORT}:8086
     networks:
       - qyt_net
     env_file: 
@@ -58,7 +57,7 @@ services:
     # hostname: grafana
     # container_name: grafana
     ports:
-      - '3000:3000'
+      - ${GRAFANA_PORT}:3000
     networks:
       - qyt_net
     volumes:
@@ -71,9 +70,8 @@ services:
     build: "./microservices/"
     networks:
       - qyt_net
-    environment:
-      - NAMEKO_USER=${NAMEKO_USER}
-      - NAMEKO_PASS=${NAMEKO_PASS}
+    env_file:
+      - ./nameko.env
     depends_on:
       - rabbitmq
     restart: always
@@ -83,7 +81,7 @@ services:
     depends_on:
       - nameko-microservice
     ports:
-      - "8089:8089"
+      - ${NAMEKO_APP_PORT}:8089
     networks:
       - qyt_net
     env_file: .env
