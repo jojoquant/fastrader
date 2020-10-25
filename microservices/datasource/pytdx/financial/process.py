@@ -114,7 +114,7 @@ def save_financial_df_to_mongodb(
     df['report_date'] = df['report_date'].dt.tz_localize('Asia/Shanghai')  # 设置当前时间为东八区
     df['report_date'] = df['report_date'].dt.tz_convert('UTC')  # 转成utc时间
 
-    mongo.write_df_list_to_db(
+    mongo.write_df_dict_to_db(
         df=df,
         database_name=database_name,
         collection_name=collection_name,
