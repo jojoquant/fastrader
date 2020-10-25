@@ -91,43 +91,42 @@ class MongoDB(object):
                 database_name, collection_name))
         return
 
+    def write_df_json_to_db(self,
+                            my_df: pd.DataFrame,
+                            database_name: str = 'mydatabasename',
+                            collection_name: str = 'mycollectionname',
+                            delete_old_collection: bool = True,
+                            timer: bool = True):
+        '''
+        三种写入数据的方式中最快, 快10多秒钟, 其他两种方式有chunksize的效果一般
+        缺点是 df.to_json(orient='records', date_format="iso") 以后,
+        再json.loads 生成dict里面的date会变成字符串, 需要加钩子函数去遍历列转成标准python的datetime格式, 影响效率
+        :param my_df: Dataframe
+        :param database_name: str
+        :param collection_name: str
+        :param delete_old_collection: Boolean
+        :param timer: Boolean
+        :return: None
+        '''
 
-def write_df_json_to_db(self,
-                        my_df: pd.DataFrame,
-                        database_name: str = 'mydatabasename',
-                        collection_name: str = 'mycollectionname',
-                        delete_old_collection: bool = True,
-                        timer: bool = True):
-    '''
-    三种写入数据的方式中最快, 快10多秒钟, 其他两种方式有chunksize的效果一般
-    缺点是 df.to_json(orient='records', date_format="iso") 以后,
-    再json.loads 生成dict里面的date会变成字符串, 需要加钩子函数去遍历列转成标准python的datetime格式, 影响效率
-    :param my_df: Dataframe
-    :param database_name: str
-    :param collection_name: str
-    :param delete_old_collection: Boolean
-    :param timer: Boolean
-    :return: None
-    '''
+        db = self.client[database_name]
+        collection = db[collection_name]
 
-    db = self.client[database_name]
-    collection = db[collection_name]
+        if delete_old_collection:
+            collection.delete_many({})  # Destroy the collection
 
-    if delete_old_collection:
-        collection.delete_many({})  # Destroy the collection
+        if timer:
+            start_time = time.perf_counter()
 
-    if timer:
-        start_time = time.perf_counter()
+        collection.insert_many(json.loads(my_df.to_json(orient='records')))
 
-    collection.insert_many(json.loads(my_df.to_json(orient='records')))
-
-    if timer:
-        print('Complete importing data to DB:{} -- collection:{}. Time cost : {:.2f}s'.format(
-            database_name, collection_name, time.perf_counter() - start_time))
-    else:
-        print('Complete importing data to DB:{} -- collection:{}.'.format(
-            database_name, collection_name))
-    return
+        if timer:
+            print('Complete importing data to DB:{} -- collection:{}. Time cost : {:.2f}s'.format(
+                database_name, collection_name, time.perf_counter() - start_time))
+        else:
+            print('Complete importing data to DB:{} -- collection:{}.'.format(
+                database_name, collection_name))
+        return
 
 
 if __name__ == '__main__':
