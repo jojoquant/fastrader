@@ -14,7 +14,7 @@ from tqdm import tqdm
 
 from pytdx.crawler.history_financial_crawler import HistoryFinancialListCrawler, HistoryFinancialCrawler
 from microservices.database.mongodb.pandas_opration import MongoDB
-from microservices.datasource.pytdx.financial.financial_mean import financial_dict
+from microservices.datasource.pytdx.financial.financial_map import financial_dict
 
 
 def get_financial_df(report_date: List[str] = None) -> pd.DataFrame:
@@ -125,9 +125,8 @@ def save_financial_df_to_mongodb(
 
 
 if __name__ == '__main__':
-    # df = get_financial_df()
+    df = get_financial_df()
     # df = get_financial_df(report_date=["20200930", "20200630", "20200331", "20191231"])
-    df = get_financial_df(report_date=["20200930", "20191231"])
     # print(1)
     # df.to_csv('financial_data.csv', index=False)
 

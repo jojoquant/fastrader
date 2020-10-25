@@ -5,7 +5,7 @@ from microservices.datasource.pytdx.financial.income_statement import income_sta
 from microservices.datasource.pytdx.financial.cash_flow_statement import cash_flow_statement_dict
 from microservices.datasource.pytdx.financial.fundamental_analysis import fundamental_analysis_dict
 
-from microservices.datasource.pytdx.financial.unknown import unknown_dict
+from microservices.datasource.pytdx.financial.unknown_map import unknown_dict
 
 info_per_share_dict = {
     # 1.每股指标
