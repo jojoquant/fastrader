@@ -6,12 +6,12 @@
 # @Software : PyCharm
 
 
-from microservices.datasource.pytdx.financial.fundamental_analysis.solvency import solvency_dict
-from microservices.datasource.pytdx.financial.fundamental_analysis.operating_capability import operating_capability_dict
-from microservices.datasource.pytdx.financial.fundamental_analysis.growth_capability import growth_capability_dict
-from microservices.datasource.pytdx.financial.fundamental_analysis.profitability import profitability_dict
-from microservices.datasource.pytdx.financial.fundamental_analysis.capital_structure import capital_structure_dict
-from microservices.datasource.pytdx.financial.fundamental_analysis.cash_capability import cash_capability_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis.solvency import solvency_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis.operating_capability import operating_capability_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis.growth_capability import growth_capability_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis.profitability import profitability_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis.capital_structure import capital_structure_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis.cash_capability import cash_capability_dict
 
 fundamental_analysis_dict = {
     # 5. 偿债能力分析

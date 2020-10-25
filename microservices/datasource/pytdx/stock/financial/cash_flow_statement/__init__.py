@@ -5,9 +5,9 @@
 # @Author   : Fangyang
 # @Software : PyCharm
 
-from microservices.datasource.pytdx.financial.cash_flow_statement.operating import operating_dict
-from microservices.datasource.pytdx.financial.cash_flow_statement.investment import investment_dict
-from microservices.datasource.pytdx.financial.cash_flow_statement.financing import financing_dict
+from microservices.datasource.pytdx.stock.financial.cash_flow_statement.operating import operating_dict
+from microservices.datasource.pytdx.stock.financial.cash_flow_statement.investment import investment_dict
+from microservices.datasource.pytdx.stock.financial.cash_flow_statement.financing import financing_dict
 
 cash_flow_statement_dict = {
     # 4. 现金流量表

@@ -14,7 +14,7 @@ from tqdm import tqdm
 
 from pytdx.crawler.history_financial_crawler import HistoryFinancialListCrawler, HistoryFinancialCrawler
 from microservices.database.mongodb.pandas_opration import MongoDB
-from microservices.datasource.pytdx.financial.financial_map import financial_dict
+from microservices.datasource.pytdx.stock.financial.financial_map import financial_dict
 
 
 def get_financial_df(report_date: List[str] = None) -> pd.DataFrame:

@@ -5,9 +5,9 @@
 # @Author   : Fangyang
 # @Software : PyCharm
 
-from microservices.datasource.pytdx.financial.balance_sheet.assets import assets_dict
-from microservices.datasource.pytdx.financial.balance_sheet.liabilities import liabilities_dict
-from microservices.datasource.pytdx.financial.balance_sheet.equity import owner_equity_dict
+from microservices.datasource.pytdx.stock.financial.balance_sheet.assets import assets_dict
+from microservices.datasource.pytdx.stock.financial.balance_sheet.liabilities import liabilities_dict
+from microservices.datasource.pytdx.stock.financial.balance_sheet.equity import owner_equity_dict
 
 balance_sheet_dict = {
     # 2. 资产负债表 BALANCE SHEET

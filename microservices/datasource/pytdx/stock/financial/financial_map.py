@@ -1,11 +1,11 @@
 # coding:utf-8
 
-from microservices.datasource.pytdx.financial.balance_sheet import balance_sheet_dict
-from microservices.datasource.pytdx.financial.income_statement import income_statement_dict
-from microservices.datasource.pytdx.financial.cash_flow_statement import cash_flow_statement_dict
-from microservices.datasource.pytdx.financial.fundamental_analysis import fundamental_analysis_dict
+from microservices.datasource.pytdx.stock.financial.balance_sheet import balance_sheet_dict
+from microservices.datasource.pytdx.stock.financial.income_statement import income_statement_dict
+from microservices.datasource.pytdx.stock.financial.cash_flow_statement import cash_flow_statement_dict
+from microservices.datasource.pytdx.stock.financial.fundamental_analysis import fundamental_analysis_dict
 
-from microservices.datasource.pytdx.financial.unknown_map import unknown_dict
+from microservices.datasource.pytdx.stock.financial.unknown_map import unknown_dict
 
 info_per_share_dict = {
     # 1.每股指标
