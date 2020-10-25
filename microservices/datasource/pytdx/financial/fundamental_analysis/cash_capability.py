@@ -7,7 +7,7 @@
 
 cash_capability_dict = {
     # 10. 现金流量分析
-    '219每股经营性现金流(元)': 'operatingCashFlowPerShare',
+    '219每股经营性现金流(元)': 'operatingCashFlowPerShare2',
     '220营业收入现金含量(%)': 'cashOfOperatingIncome',
     '221经营活动产生的现金流量净额/经营活动净收益(%)': 'netOperatingCashFlow/netOperationProfit',
     '222销售商品提供劳务收到的现金/营业收入(%)': 'cashFromGoodsSales/OperatingRevenue',

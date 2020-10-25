@@ -57,7 +57,7 @@
 
 '006净资产收益率': 'ROE',
 
-'007每股经营现金流量': 'operatingCashFlowPerShare',
+'007每股经营现金流量': 'operatingCashFlowPerShare1',
 
 ## 2. 资产负债表 BALANCE SHEET
 ### 2.1 资产
@@ -532,7 +532,7 @@
 
 ## 10. 现金流量分析
 
-'219每股经营性现金流(元)': 'operatingCashFlowPerShare',
+'219每股经营性现金流(元)': 'operatingCashFlowPerShare2',
 
 '220营业收入现金含量(%)': 'cashOfOperatingIncome',
 
@@ -586,7 +586,7 @@
 
 '243第一大股东的持股数量': 'theNumberOfFirstMajorityShareholder',
 
-'244十大流通股东持股数量合计(股)': 'totalNumberOfTopTenCirculationShareholders',
+'244十大流通股东持股数量合计(股)': 'totalNumberOfTopTenCirculationShareholdersAB',
 
 '245十大股东持股数量合计(股)': 'totalNumberOfTopTenMajorShareholders',
 
@@ -632,7 +632,7 @@
 
 """ [注：季度报告中，若股东同时持有非流通A股性质的股份(如同时持有流通A股和流通B股），取的是包含同时持有非流通A股性质的流通股数]"""
 
-'264十大流通股东中持有A股合计(股)': 'totalNumberOfTopTenCirculationShareholders',
+'264十大流通股东中持有A股合计(股)': 'totalNumberOfTopTenCirculationShareholdersA',
 
 '265第一大流通股东持股量(股)': 'firstLargeCirculationShareholdersNumber',
 

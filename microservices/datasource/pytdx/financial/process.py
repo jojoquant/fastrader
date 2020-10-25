@@ -6,15 +6,18 @@
 # @Software : PyCharm
 
 import time
-from typing import List
 import pandas as pd
-from tqdm import tqdm
+
+from typing import List
 from pathlib import Path
+from tqdm import tqdm
+
 from pytdx.crawler.history_financial_crawler import HistoryFinancialListCrawler, HistoryFinancialCrawler
+from microservices.database.mongodb.pandas_opration import MongoDB
 from microservices.datasource.pytdx.financial.financial_mean import financial_dict
 
 
-def download_financial_data(report_date: List[str] = None) -> pd.DataFrame:
+def get_financial_df(report_date: List[str] = None) -> pd.DataFrame:
     '''
     下载金融财务数据
     :param report_date: default None, 表示下载全部数据. 指定下载格式为 ["20200930", "20200630", "20200331", "20191231"], 其他格式和月日数字不行
@@ -24,14 +27,14 @@ def download_financial_data(report_date: List[str] = None) -> pd.DataFrame:
     if not save_data_dir.exists():
         save_data_dir.mkdir()
 
+    # 获取全部下载任务列表
+    list_crawler = HistoryFinancialListCrawler()
+    list_data = list_crawler.fetch_and_parse()
+    target_files_df = pd.DataFrame(data=list_data)
+
     if report_date:
         # TODO 这里要做参数检查
-        target_files_df = {"filename": [f"gpcw{i}.zip" for i in report_date]}  # 这里就暂时用字典伪装一下吧
-    else:
-        # 获取全部下载任务列表
-        list_crawler = HistoryFinancialListCrawler()
-        list_data = list_crawler.fetch_and_parse()
-        target_files_df = pd.DataFrame(data=list_data)
+        target_files_df = target_files_df[target_files_df["filename"].isin([f"gpcw{i}.zip" for i in report_date])]
 
     columns_list = financial_dict.values()
     result_df = pd.DataFrame(columns=columns_list)
@@ -50,8 +53,9 @@ def download_financial_data(report_date: List[str] = None) -> pd.DataFrame:
         if filename in data_zip_file_list:
             exist_file_size = (save_data_dir / filename).stat().st_size
             # 如果已存在文件size小于目标文件, 重新下载新文件
-            if exist_file_size < target_file_size*0.9999:
-                pbar.set_description(f"{filename} need to update. Start download... {exist_file_size}/{target_file_size}")
+            if exist_file_size < target_file_size * 0.9999:
+                pbar.set_description(
+                    f"{filename} need to update. Start download... {exist_file_size}/{target_file_size}")
                 result = data_crawler.fetch_and_parse(
                     # reporthook=demo_reporthook,
                     filename=filename,
@@ -87,16 +91,46 @@ def download_financial_data(report_date: List[str] = None) -> pd.DataFrame:
     return result_df
 
 
-def save_df_to_influxdb():
+def save_financial_df_to_influxdb():
     pass
 
 
-def save_df_to_mongodb():
-    pass
+def save_financial_df_to_mongodb(
+        mongo: MongoDB = None,
+        df: pd.DataFrame = None,
+        database_name: str = 'DBfastrader',
+        collection_name: str = 'financial',
+        delete_old_collection: bool = True,
+        chunksize: int = None,
+        timer: bool = True
+):
+    assert mongo is not None, "Please assign mongo instance"
+    assert df is not None and df.empty is not True, "DataFrame is None or empty"
+    assert len(df.columns) == 582, f"DataFrame columns nums is {len(df.columns)} != 582"
+
+    # 20191230_000714 这种str类型组合的key竟然有重复的?? 放弃自定义 _id
+    # df["_id"] = df["report_date"].apply(lambda x: str(x)) + "_" + df['code']
+    df['report_date'] = pd.to_datetime(df['report_date'], format='%Y%m%d', utc=False)
+    df['report_date'] = df['report_date'].dt.tz_localize('Asia/Shanghai')  # 设置当前时间为东八区
+    df['report_date'] = df['report_date'].dt.tz_convert('UTC')  # 转成utc时间
+
+    mongo.write_df_list_to_db(
+        df=df,
+        database_name=database_name,
+        collection_name=collection_name,
+        delete_old_collection=delete_old_collection,
+        chunksize=chunksize,
+        timer=timer
+    )
 
 
 if __name__ == '__main__':
-    df = download_financial_data()
-    # df = download_financial_data(report_date=["20200930", "20200630", "20200331", "20191231"])
+    # df = get_financial_df()
+    # df = get_financial_df(report_date=["20200930", "20200630", "20200331", "20191231"])
+    df = get_financial_df(report_date=["20200930", "20191231"])
+    # print(1)
+    # df.to_csv('financial_data.csv', index=False)
+
+    pd_mongo = MongoDB()
+    save_financial_df_to_mongodb(mongo=pd_mongo, df=df)
     print(1)
-    df.to_csv('financial_data.csv', index=False)

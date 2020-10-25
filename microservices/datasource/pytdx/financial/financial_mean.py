@@ -17,19 +17,19 @@ info_per_share_dict = {
     '004每股净资产': 'netAssetsPerShare',
     '005每股资本公积金': 'capitalReservePerShare',
     '006净资产收益率': 'ROE',
-    '007每股经营现金流量': 'operatingCashFlowPerShare',
+    '007每股经营现金流量': 'operatingCashFlowPerShare1',
 }
 
 financial_dict = {
-    # 1.每股指标
+    # 1.每股指标 0~7
     **info_per_share_dict,
-    # 资产负债表
+    # 资产负债表 8~73
     **balance_sheet_dict,
-    # 利润表
+    # 利润表 74~97
     **income_statement_dict,
-    # 现金流量表
+    # 现金流量表 98~158
     **cash_flow_statement_dict,
-    # 基本面分析
+    # 基本面分析 159~229
     **fundamental_analysis_dict,
 
     # 11. 单季度财务指标
@@ -48,7 +48,7 @@ financial_dict = {
     '241已上市流通H股': 'listedHShares',
     '242股东人数(户)': 'numberOfShareholders',
     '243第一大股东的持股数量': 'theNumberOfFirstMajorityShareholder',
-    '244十大流通股东持股数量合计(股)': 'totalNumberOfTopTenCirculationShareholders',
+    '244十大流通股东持股数量合计(股)': 'totalNumberOfTopTenCirculationShareholdersAB',
     '245十大股东持股数量合计(股)': 'totalNumberOfTopTenMajorShareholders',
     # 13.机构持股
     '246机构总量（家）': 'institutionNumber',
@@ -71,7 +71,7 @@ financial_dict = {
     '263年金持股量': 'pensionInsuranceAgencyShareholfing',
     # 14.新增指标
     # [注：季度报告中，若股东同时持有非流通A股性质的股份(如同时持有流通A股和流通B股），取的是包含同时持有非流通A股性质的流通股数]
-    '264十大流通股东中持有A股合计(股)': 'totalNumberOfTopTenCirculationShareholders',
+    '264十大流通股东中持有A股合计(股)': 'totalNumberOfTopTenCirculationShareholdersA',
     '265第一大流通股东持股量(股)': 'firstLargeCirculationShareholdersNumber',
     # [注：1.自由流通股=已流通A股-十大流通股东5%以上的A股；2.季度报告中，若股东同时持有非流通A股性质的股份(如同时持有流通A股和流通H股），5%以上的持股取的是不包含同时持有非流通A股性质的流通股数，结果可能偏大； 3.指标按报告期展示，新股在上市日的下个报告期才有数据]
     '266自由流通股(股)': 'freeCirculationStock',
