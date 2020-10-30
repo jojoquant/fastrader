@@ -219,9 +219,9 @@ data = btfeeds.MyHLOC(dataname='mydata.csv')
 
 # [Data Feeds - Extending](./mkd02_Extending.md)
 # [Data Feeds - Development - CSV](./mkd03_Development_csv.md)
-# Data Feeds - Development - General
-# Data Feeds - Mutiple Timeframes
-# Data Feeds - Resample
+# [Data Feeds - Development - General](./mkd04_Development_General.md)
+# [Data Feeds - Mutiple Timeframes](./mkd05_Multiple_Timeframes.md)
+# [Data Feeds - Resample](./mkd06_Resample.md)
 # Data Feeds - Replay
 # Data Feeds - Replay
 # Data Feeds - Rollover
