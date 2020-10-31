@@ -8,11 +8,8 @@
 - [Data Feeds - Mutiple Timeframes](#data-feeds---mutiple-timeframes)
 - [Data Feeds - Resample](#data-feeds---resample)
 - [Data Feeds - Replay](#data-feeds---replay)
-- [Data Feeds - Replay](#data-feeds---replay-1)
 - [Data Feeds - Rollover](#data-feeds---rollover)
 - [Data Feeds - Filters](#data-feeds---filters)
-  - [Filters](#filters)
-  - [Filters - Reference](#filters---reference)
 - [Data Feeds - Yahoo](#data-feeds---yahoo)
 - [Data Feeds - Panda](#data-feeds---panda)
 - [Data Feeds - Reference](#data-feeds---reference)
@@ -223,11 +220,8 @@ data = btfeeds.MyHLOC(dataname='mydata.csv')
 # [Data Feeds - Mutiple Timeframes](./mkd05_Multiple_Timeframes.md)
 # [Data Feeds - Resample](./mkd06_Resample.md)
 # Data Feeds - Replay
-# Data Feeds - Replay
 # Data Feeds - Rollover
 # Data Feeds - Filters 
-## Filters
-## Filters - Reference
 # Data Feeds - Yahoo
 # Data Feeds - Panda
 # Data Feeds - Reference
