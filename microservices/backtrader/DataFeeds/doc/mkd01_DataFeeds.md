@@ -221,7 +221,7 @@ data = btfeeds.MyHLOC(dataname='mydata.csv')
 # [Data Feeds - Resample](./mkd06_Resample.md)
 # [Data Feeds - Replay](./mkd07_Replay.md)
 # [Data Feeds - Rollover](./mkd08_Rollover.md)
-# Data Feeds - Filters 
-# Data Feeds - Yahoo
-# Data Feeds - Panda
+# [Data Feeds - Filters](./mkd09_Filters.md) 
+# [Data Feeds - Yahoo](./mkd10_Yahoo.md)
+# [Data Feeds - Panda](./mkd11_Pandas.md)
 # Data Feeds - Reference
