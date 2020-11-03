@@ -169,7 +169,7 @@ cerebro.plot()
 
 ----------------------------------------------------
 # [Reference](./mkd02_Reference.md)
-# Cerebro - Memory Savings
-# Cerebro - Optimization - Improvements
+# [Cerebro - Memory Savings](./mkd03_Memory_Savings.md)
+# [Cerebro - Optimization - Improvements](./mkd04_Optimization.md)
 # Cerebro - Exceptions
 # Logging - Writer
