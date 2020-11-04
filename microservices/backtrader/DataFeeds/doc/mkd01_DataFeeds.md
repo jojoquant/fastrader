@@ -8,11 +8,8 @@
 - [Data Feeds - Mutiple Timeframes](#data-feeds---mutiple-timeframes)
 - [Data Feeds - Resample](#data-feeds---resample)
 - [Data Feeds - Replay](#data-feeds---replay)
-- [Data Feeds - Replay](#data-feeds---replay-1)
 - [Data Feeds - Rollover](#data-feeds---rollover)
 - [Data Feeds - Filters](#data-feeds---filters)
-  - [Filters](#filters)
-  - [Filters - Reference](#filters---reference)
 - [Data Feeds - Yahoo](#data-feeds---yahoo)
 - [Data Feeds - Panda](#data-feeds---panda)
 - [Data Feeds - Reference](#data-feeds---reference)
@@ -219,15 +216,12 @@ data = btfeeds.MyHLOC(dataname='mydata.csv')
 
 # [Data Feeds - Extending](./mkd02_Extending.md)
 # [Data Feeds - Development - CSV](./mkd03_Development_csv.md)
-# Data Feeds - Development - General
-# Data Feeds - Mutiple Timeframes
-# Data Feeds - Resample
-# Data Feeds - Replay
-# Data Feeds - Replay
-# Data Feeds - Rollover
-# Data Feeds - Filters 
-## Filters
-## Filters - Reference
-# Data Feeds - Yahoo
-# Data Feeds - Panda
-# Data Feeds - Reference
+# [Data Feeds - Development - General](./mkd04_Development_General.md)
+# [Data Feeds - Mutiple Timeframes](./mkd05_Multiple_Timeframes.md)
+# [Data Feeds - Resample](./mkd06_Resample.md)
+# [Data Feeds - Replay](./mkd07_Replay.md)
+# [Data Feeds - Rollover](./mkd08_Rollover.md)
+# [Data Feeds - Filters](./mkd09_Filters.md) 
+# [Data Feeds - Yahoo](./mkd10_Yahoo.md)
+# [Data Feeds - Panda](./mkd11_Pandas.md)
+# [Data Feeds - Reference](./mkd12_Reference.md)
