@@ -1,3 +1,8 @@
+- [Pyfolio Integration](#pyfolio-integration)
+  - [No PyFolio](#no-pyfolio)
+  - [A PyFolio run](#a-pyfolio-run)
+
+------------------------------------------------------
 # Pyfolio Integration
 一个整合的投资组合工具，即pyfolio，源自[Ticket＃108](https://github.com/mementum/backtrader/issues/108)。
 
