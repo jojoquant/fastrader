@@ -594,7 +594,111 @@ Params:
 
 ## OandaData
 ## PandasData
+使用Pandas DataFrame作为提要源，并使用列名的索引（可以是“数字”）
+
+这意味着与行相关的所有参数都必须具有数值作为元组的索引
+
+Params:
+
+* `nocase` (default `True`) 不区分大小写的列名称匹配
+
+Note:
+
+* 该 `dataname` 参数是 Pandas DataFrame
+
+* `datetime` 可能的值:
+    * `None`: 索引包含 datetime
+    * `-1`: 无索引，自动检测列
+    * `0/string`: 指定列标识
+
+* 对于其他行参数
+    * `None`: column 不呈现
+    * `-1`: 自动检测
+    * `0/string`: 特定列标识
+
+Lines:
+```
+* close
+* low
+* high
+* open
+* volume
+* openinterest
+* datetime
+```
+
+Params:
+```
+* dataname (None)
+* name ()
+* compression (1)
+* timeframe (5)
+* fromdate (None)
+* todate (None)
+* sessionstart (None)
+* sessionend (None)
+* filters ([])
+* tz (None)
+* tzinput (None)
+* qcheck (0.0)
+* calendar (None)
+------------------------------
+* nocase (True)
+------------------------------
+* datetime (None)
+* open (-1)
+* high (-1)
+* low (-1)
+* close (-1)
+* volume (-1)
+* openinterest (-1)
+```
+
 ## PandasDirectData
+使用Pandas DataFrame作为 feed 源，直接在 itertuples 返回的元组上进行迭代。
+
+这意味着与 lines 相关的所有参数都必须具有数值作为元组的索引
+
+Note:
+* 该 `dataname` 参数是 Pandas DataFrame
+* 数据行的任何参数中的负值表示它在 DataFrame 中不存在
+
+Lines:
+```
+* close
+* low
+* high
+* open
+* volume
+* openinterest
+* datetime
+```
+
+Params:
+```
+* dataname (None)
+* name ()
+* compression (1)
+* timeframe (5)
+* fromdate (None)
+* todate (None)
+* sessionstart (None)
+* sessionend (None)
+* filters ([])
+* tz (None)
+* tzinput (None)
+* qcheck (0.0)
+* calendar (None)
+------------------------------------
+* datetime (0)
+* open (1)
+* high (2)
+* low (3)
+* close (4)
+* volume (5)
+* openinterest (6)
+```
+
 ## Quandl
 ## QuandlCSV
 ## RollOver
