@@ -9,7 +9,7 @@ import sys
 
 # import os
 # print(os.path.abspath('..'))
-sys.path.append('..')  # 临时添加microservices到环境变量中
+sys.path.append('../../backtrader')  # 临时添加microservices到环境变量中
 
 from functools import lru_cache
 import pandas as pd
@@ -17,7 +17,7 @@ from sqlalchemy import create_engine
 from datetime import datetime
 import platform
 
-from microservices.backtrader.DataFeeds.trader.utility import get_file_path
+from microservices.database.sqlite.trader.utility import get_file_path
 from microservices.utils.timeit import timeit_cls_method_wrapper
 
 
@@ -73,7 +73,7 @@ class DBOperation:
 
 
 if __name__ == "__main__":
-    from microservices.backtrader.DataFeeds.trader.setting import get_settings
+    from microservices.database.sqlite.trader.setting import get_settings
 
     settings = get_settings("database.")
     dbo = DBOperation(settings)
