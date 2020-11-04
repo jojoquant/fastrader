@@ -21,7 +21,7 @@ from microservices.database.sqlite.trader.utility import get_file_path
 from microservices.utils.timeit import timeit_cls_method_wrapper
 
 
-class DBOperation:
+class SqliteDB:
     def __init__(self, settings_dict):
         self.settings_dict = settings_dict
         self.file_path_str = get_file_path(settings_dict['database'])
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     from microservices.database.sqlite.trader.setting import get_settings
 
     settings = get_settings("database.")
-    dbo = DBOperation(settings)
+    dbo = SqliteDB(settings)
     # dbo.get_start_date_from_db()
     # xx = dbo.get_groupby_data_from_sql_db()
 

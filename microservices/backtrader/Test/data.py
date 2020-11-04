@@ -7,13 +7,13 @@
 
 from microservices.utils.format import trans_vnpy_to_backtrader_df_col_name_OHLCI
 from microservices.database.sqlite.trader.setting import get_settings
-from microservices.database.sqlite.pandas_operation import DBOperation
+from microservices.database.sqlite.pandas_operation import SqliteDB
 
 
 def gen_test_data_df(dbbardata_info_dict=None, dbo=None):
     if not dbo:
         settings = get_settings("database.")
-        dbo = DBOperation(settings_dict=settings)
+        dbo = SqliteDB(settings_dict=settings)
 
     if not dbbardata_info_dict:
         dbbardata_info_dict = {

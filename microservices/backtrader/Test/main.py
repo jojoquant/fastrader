@@ -11,7 +11,7 @@ from microservices.backtrader.Test.data import gen_test_data_df
 
 if __name__ == '__main__':
     # settings = get_settings("database.")
-    # dbo = DBOperation(settings)
+    # dbo = SqliteDB(settings)
     # dbo.get_start_date_from_db()
     # xx = dbo.get_groupby_data_from_sql_db()
 
