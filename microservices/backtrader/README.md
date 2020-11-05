@@ -21,9 +21,9 @@
 - [Data Feeds - Reference](./DataFeeds/doc/mkd12_Reference.md)
 
 # Strategy
-- [Strategy](./strategy/doc/mkd01_Strategy.md)
-- [Strategy - Signals](./strategy/doc/mkd02_Signals.md)
-- [Strategy - Reference](./strategy/doc/mkd03_Reference.md)
+- [Strategy](./Strategy/doc/mkd01_Strategy.md)
+- [Strategy - Signals](./Strategy/doc/mkd02_Signals.md)
+- [Strategy - Reference](./Strategy/doc/mkd03_Reference.md)
 
 # Analyzers
 - [Analyzers](./Analyzers/doc/mkd01_Analyzers.md)
