@@ -25,6 +25,11 @@
 - [Strategy - Signals](./Strategy/doc/mkd02_Signals.md)
 - [Strategy - Reference](./Strategy/doc/mkd03_Reference.md)
 
+# Observers
+- [Observers - Statistics](./Observers/doc/mkd01_Statistics.md)
+- [Observers - Benchmarking](./Observers/doc/mkd02_Benchmarking.md)
+- [Observers - Reference](./Observers/doc/mkd03_Reference.md)
+
 # Analyzers
 - [Analyzers](./Analyzers/doc/mkd01_Analyzers.md)
 - [Analyzers - PyFolio](./Analyzers/doc/mkd02_PyFolio.md)
