@@ -171,5 +171,5 @@ cerebro.plot()
 # [Reference](./mkd02_Reference.md)
 # [Cerebro - Memory Savings](./mkd03_Memory_Savings.md)
 # [Cerebro - Optimization - Improvements](./mkd04_Optimization.md)
-# Cerebro - Exceptions
-# Logging - Writer
+# [Cerebro - Exceptions](./mkd05_Exceptions.md)
+# [Logging - Writer](mkd06_Logging_Writer.md)

@@ -17,8 +17,8 @@
 - [Reference](./Cerebro/doc/mkd02_Reference.md)
 - [Cerebro - Memory Savings](./Cerebro/doc/mkd03_Memory_Savings.md)
 - [Cerebro - Optimization - Improvements](./Cerebro/doc/mkd04_Optimization.md)
-- Cerebro - Exceptions
-- Logging - Writer
+- [Cerebro - Exceptions](./Cerebro/doc/mkd05_Exceptions.md)
+- [Logging - Writer](./Cerebro/doc/mkd06_Logging_Writer.md)
 
 # Broker
 - [Broker](./broker/doc/mkd01_Broker.md)
