@@ -42,6 +42,14 @@
 - [Strategy - Signals](./Strategy/doc/mkd02_Signals.md)
 - [Strategy - Reference](./Strategy/doc/mkd03_Reference.md)
 
+# Indicators
+- [Using Indicators](./Indicators/doc/mkd01_Usage.md)
+- [Indicators - Development](./Indicators/doc/mkd02_Development.md)
+- [Indicators - Timeframe Mixing](./Indicators/doc/mkd03_Timeframe_Mixing.md)
+- [Indicators - Reference](./Indicators/doc/mkd04_Reference.md)
+- [Indicators - ta-lib](./Indicators/doc/mkd05_talib.md)
+- [Indicators - ta-lib - Reference](./Indicators/doc/mkd06_talib_Reference.md)
+
 # Sizers
 - [Sizers](./Sizers/doc/mkd01_Sizers.md)
 - [Sizers - Reference](./Sizers/doc/mkd02_Reference.md)
