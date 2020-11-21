@@ -4,7 +4,8 @@ services:
   rabbitmq:
     image: "rabbitmq:3-management"
     ports: 
-      - ${RABBITMQ_PORT}:15672
+      - ${RABBITMQ_PORT}:5672
+      - ${RABBITMQ_MANAGEMENT_PORT}:15672
     networks:
       - qyt_net
     env_file:
