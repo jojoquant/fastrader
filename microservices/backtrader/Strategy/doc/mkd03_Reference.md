@@ -1,5 +1,7 @@
 - [Reference](#reference)
   - [class backtrader.Strategy(*args, **kwargs)](#class-backtraderstrategyargs-kwargs)
+  - [MA_CrossOver](#ma_crossover)
+  - [SignalStrategy](#signalstrategy)
 
 ---------------------------------------------------------------------
 # Reference
@@ -443,3 +445,6 @@ notify_timer(timer, when, *args, **kwargs)
 Receives a timer notification where timer is the timer which was returned by add_timer, and when is the calling time. args and kwargs are any additional arguments passed to add_timer
 
 The actual when time can be later, but the system may have not be able to call the timer before. This value is the timer value and no the system time.
+
+## MA_CrossOver
+## SignalStrategy
